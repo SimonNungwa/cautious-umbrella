@@ -149,7 +149,7 @@ ul.list-unstyled li a {
     text-decoration: none;
 }
 
-.navbar-nav {
+.small-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
