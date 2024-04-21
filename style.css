@@ -141,8 +141,26 @@ ul.list-unstyled li a {
     transform: translateY(0);
 }
 
-   
+ .footer{
+    text-align: center;
+ }
 
+.footer a{
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 @media (max-width: 768px) {
     .frame .card-body {
@@ -151,12 +169,17 @@ ul.list-unstyled li a {
     .footer .container {
         text-align: center;
     }
+    .frame {
+        min-height: 90vh;
+        padding: 0;
+    }
+    
 }
 
 
 
 @media (max-width: 992px) {
-    .navbar-nav {
+    .grand-nav {
         display: none !important;
     }
     .navbar-brand {
