@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Contact Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <section class="d-flex justify-content-center">
+        <main class="container main row m-5 p-5">
+            <section class="col-md-6 my-2">
+                <h1>Contact us</h1>
+                <p>Feel free to contact us at any time. We will get back to you as soon as we can</p>
+                <form method="get" class="form" onsubmit="sendEmail(event)">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="input px-4" required>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" class="input px-4" required>
+                    <label for="msg">Message</label>
+                    <input type="text" id="msg" class="input px-4" minlength="10">
+                    <input type="submit" value="SEND" class="bg-dark text-light">
+                </form>
+            </section>
+            <section class="col-md-6 my-2 px-5">
+                <section class="bg-dark text-light p-4">
+                    <h2 class="mb-4">Info</h2>
+                    <section class="d-flex align-items-center mb-2">
+                        <i class="bi bi-envelope me-2"></i>
+                        <p>Email: Ubuntuexpo.africa@gmail.com</p>
+                    </section>
+                    <section class="d-flex align-items-center mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        <p>Phone: +2349018936842</p>
+                    </section>
+                    <section class="d-flex align-items-center mb-2">
+                        <i class="bi bi-buildings me-2"></i>
+                        <p>Address: Abuja, Karu, plot 70 clinic layout behind AEDC office Abuja.</p>
+                    </section>
+                    <section class="d-flex align-items-center">
+                        <i class="bi bi-clock me-2"></i>
+                        <p>Working Hours: Mon-Fri 8:00 AM - 5:00 PM West African Time</p>
+                    </section>
+                </section>
+            </section>
+        </main>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="emailSentModal" tabindex="-1" aria-labelledby="emailSentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailSentModalLabel">Email Sent</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your email has been sent successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Arrow -->
+    <a href="index.html" onclick="goBack()" class="position-absolute top-0 start-0 m-3">
+        <i class="bi bi-arrow-left text-dark" style="font-size: 1.5rem;"></i>
+    </a>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('msg').value;
+            var subject = "Message from " + name;
+            var body = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+            window.location.href = "mailto:Ubuntuexpo.africa@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+            // Show modal after email sent
+            var emailSentModal = new bootstrap.Modal(document.getElementById('emailSentModal'));
+            emailSentModal.show();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
